@@ -93,8 +93,8 @@ int EXPORT_PY_API node_getcoord(Handle ph, int index, double *x, double *y);
 int EXPORT_PY_API node_setcoord(Handle ph, int index, double x, double y);
 
 
-int EXPORT_PY_API dmnd_getmodel(Handle ph, EN_DemandModel *type, double *pmin, double *preq, double *pexp);
-int EXPORT_PY_API dmnd_setmodel(Handle ph, EN_DemandModel type, double pmin, double preq, double pexp);
+int EXPORT_PY_API dmnd_getmodel(Handle ph, int *type, double *pmin, double *preq, double *pexp);
+int EXPORT_PY_API dmnd_setmodel(Handle ph, int type, double pmin, double preq, double pexp);
 int EXPORT_PY_API dmnd_getcount(Handle ph, int nodeIndex, int *numDemands);
 int EXPORT_PY_API dmnd_getbase(Handle ph, int nodeIndex, int demandIndex, double *baseDemand);
 int EXPORT_PY_API dmnd_setbase(Handle ph, int nodeIndex, int demandIndex, double baseDemand);

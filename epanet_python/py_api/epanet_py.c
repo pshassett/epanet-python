@@ -386,13 +386,13 @@ int EXPORT_PY_API node_setcoord(Handle ph, int index, double x, double y)
 
 
 
-int EXPORT_PY_API dmnd_getmodel(Handle ph, EN_DemandModel *type, double *pmin, double *preq, double *pexp)
+int EXPORT_PY_API dmnd_getmodel(Handle ph, int *type, double *pmin, double *preq, double *pexp)
 {
     handle_t *pr = (handle_t *)ph;
     return set_error(pr->error, EN_getdemandmodel(pr->project, type, pmin, preq, pexp));
 }
 
-int EXPORT_PY_API dmnd_setmodel(Handle ph, EN_DemandModel type, double pmin, double preq, double pexp)
+int EXPORT_PY_API dmnd_setmodel(Handle ph, int type, double pmin, double preq, double pexp)
 {
     handle_t *pr = (handle_t *)ph;
     return set_error(pr->error, EN_setdemandmodel(pr->project, type, pmin, preq, pexp));
