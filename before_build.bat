@@ -28,13 +28,22 @@ set OUTPUT_PATH=\epanet_python\output\epanet\output
 
 mkdir buildlib
 cd buildlib
-git clone --branch=dev https://github.com/OpenWaterAnalytics/EPANET.git
+::git clone --branch=dev https://github.com/OpenWaterAnalytics/EPANET.git
+git clone --branch=noPY https://github.com/pshassett/EPANET.git
 cd epanet
 
+:: Copy custom python api files into epanet library.
+copy /Y %PROJECT_PATH%\epanet_python\py_api\CMakeLists.txt .\CMakeLists.txt
+copy /Y %PROJECT_PATH%\epanet_python\py_api\epanet_py.c .\src\epanet_py.c
+copy /Y %PROJECT_PATH%\epanet_python\py_api\epanet_py.h .\include\epanet_py.h
+git add .\CMakeLists.txt
+git add .\src\epanet_py.c
+git add .\include\epanet_py.h
+git commit -a -m "Copying custom python api files into epanet library."
 
 mkdir buildprod
 cd buildprod
-cmake -G"Visual Studio 14 2015 Win64" -DBUILD_PY_LIB=ON -DBUILD_TESTS=OFF ..
+cmake -G"Visual Studio 15 2017 Win64" -DBUILD_PY_LIB=ON -DBUILD_TESTS=OFF ..
 cmake --build . --config Release
 
 
