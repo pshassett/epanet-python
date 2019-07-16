@@ -29,7 +29,7 @@ set OUTPUT_PATH=\epanet_python\output\epanet\output
 mkdir buildlib
 cd buildlib
 ::git clone --branch=dev https://github.com/OpenWaterAnalytics/EPANET.git
-git clone --branch=noPY https://github.com/pshassett/EPANET.git
+git clone --branch=no-Py-api https://github.com/pshassett/EPANET.git
 cd epanet
 
 :: Copy custom python api files into epanet library.
